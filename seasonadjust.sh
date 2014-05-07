@@ -8,7 +8,8 @@
 function usage {
     echo "
 USAGE:
-    `basename $0` [-a <pct>] [-p <zone program>] <IrrigationCaddy host>"
+    `basename $0` [-a <pct>] [-p <zone program>] <IrrigationCaddy host>
+"
     exit 1
 }
 
