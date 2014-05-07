@@ -1,0 +1,22 @@
+# Program number
+prog=1
+
+# Run every n days; set to zero to use evenOdd
+ndays=2
+
+# Run even/odd days. It's odd, but 1 means even, 0 means odd.
+# Blank means use "every n days" and "run days" in combinaton.
+evenOdd=
+
+# Run on these days (Mon Tue Wed Thu Fri Sat Sun)
+runDays=(Mon Tue Wed Thu Fri Sat Sun)
+
+# Minutes on zones 1 through 9
+zoneMins=(20 20 20 10 10 13 16 10 0)
+
+# Start times for zone in 24 hr format (i.e. 21:00 is 9pm.  00:00 is midnight)
+# set up to 5
+startTimes=(21:00)
+
+# Enable/disable program
+allowRun=yes
