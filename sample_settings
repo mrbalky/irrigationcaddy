@@ -9,14 +9,14 @@ ndays=2
 evenOdd=
 
 # Run on these days (Mon Tue Wed Thu Fri Sat Sun)
-runDays=(Mon Tue Wed Thu Fri Sat Sun)
+runDays=(Mon Wed Fri Sun)
 
 # Minutes on zones 1 through 9
 zoneMins=(20 20 20 10 10 13 16 10 0)
 
 # Start times for zone in 24 hr format (i.e. 21:00 is 9pm.  00:00 is midnight)
 # set up to 5
-startTimes=(21:00)
+startTimes=(09:00 21:00)
 
 # Enable/disable program
 allowRun=yes
