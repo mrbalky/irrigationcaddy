@@ -1,4 +1,4 @@
-irrigation-caddy
+IrrigationCaddy
 ================
 
 Simple scripts for automating IrrigationCaddy
