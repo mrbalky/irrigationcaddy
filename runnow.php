@@ -2,34 +2,49 @@
 <?
 $irrigationCaddy = "192.168.1.60";
 
+function minSelect($zone) {
+?>
+<select name="<?="z${zone}durMin"?>">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+</select>
+<?
+}
+
 function runNowForm($zone) {
     global $irrigationCaddy;
 ?>
-    <!--  <form method="POST" action="http://requestb.in/18anybe1"> -->
+    <!-- <form method="POST" action="http://requestb.in/18anybe1">  -->
     <form method="POST" action="http://<?=$irrigationCaddy?>/program.htm">
         <b>Zone <?=$zone?>:</b>
-        <? if ($zone == 1) echo '<input type="text"   name="z1durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z1durMin" value="0"/>'; ?>
-        <? if ($zone == 2) echo '<input type="text"   name="z2durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z2durMin" value="0"/>'; ?>
-        <? if ($zone == 3) echo '<input type="text"   name="z3durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z3durMin" value="0"/>'; ?>
-        <? if ($zone == 4) echo '<input type="text"   name="z4durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z4durMin" value="0"/>'; ?>
-        <? if ($zone == 5) echo '<input type="text"   name="z5durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z5durMin" value="0"/>'; ?>
-        <? if ($zone == 6) echo '<input type="text"   name="z6durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z6durMin" value="0"/>'; ?>
-        <? if ($zone == 7) echo '<input type="text"   name="z7durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z7durMin" value="0"/>'; ?>
-        <? if ($zone == 8) echo '<input type="text"   name="z8durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z8durMin" value="0"/>'; ?>
-        <? if ($zone == 9) echo '<input type="text"   name="z9durMin" value="1" width="3"/>'; else echo '<input type="hidden"   name="z9durMin" value="0"/>'; ?>
+        <?
+        minSelect($zone);
+        for ( $i=1; $i<=9; $i++ ) {
+            if ($zone != $i)
+                echo '<input type="hidden" name="z'.$i.'durMin" value="0"/>'."\n";
+        }
+        ?>
+        <input type="hidden" name="z1durHr" value="0"/>
+        <input type="hidden" name="z2durHr" value="0"/>
+        <input type="hidden" name="z3durHr" value="0"/>
+        <input type="hidden" name="z4durHr" value="0"/>
+        <input type="hidden" name="z5durHr" value="0"/>
+        <input type="hidden" name="z6durHr" value="0"/>
+        <input type="hidden" name="z7durHr" value="0"/>
+        <input type="hidden" name="z8durHr" value="0"/>
+        <input type="hidden" name="z9durHr" value="0"/>
+        <input type="hidden" name="doProgram" value="1"/>
+        <input type="hidden" name="runNow" value="1"/>
+        <input type="hidden" name="pgmNum" value="4"/>
         <input type="submit" value="Run"/>
-        <input type="hidden"   name="z1durHr" value="0"/>
-        <input type="hidden"   name="z2durHr" value="0"/>
-        <input type="hidden"   name="z3durHr" value="0"/>
-        <input type="hidden"   name="z4durHr" value="0"/>
-        <input type="hidden"   name="z5durHr" value="0"/>
-        <input type="hidden"   name="z6durHr" value="0"/>
-        <input type="hidden"   name="z7durHr" value="0"/>
-        <input type="hidden"   name="z8durHr" value="0"/>
-        <input type="hidden"   name="z9durHr" value="0"/>
-        <input type="hidden"   name="doProgram" value="1"/>
-        <input type="hidden"   name="runNow" value="1"/>
-        <input type="hidden"   name="pgmNum" value="4"/>
     </form>
 <? } ?>
 <head>
