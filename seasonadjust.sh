@@ -9,6 +9,9 @@ function usage {
     echo "
 USAGE:
     `basename $0` [-a <pct>] [-p <zone program>] <IrrigationCaddy host>
+
+EXAMPLE:
+    `basename $0` -a 30 -p `dirname $0`/sample_settings 192.168.1.60
 "
     exit 1
 }
