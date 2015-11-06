@@ -29,18 +29,32 @@ do
 done
 shift $((OPTIND-1))
 zoneTime=${zoneTime:-1}
-intervalSeconds=${intervalSeconds:-180}
+intervalSeconds=${intervalSeconds:-300}
 count=${count:-5}
 
 if [ $# -lt 2 ]; then
     usage
 fi
 
+function countdown
+{
+   for n in `seq $1 -1 1`; do
+      printf "\r- %3d -     " $n
+      sleep 1
+   done
+   echo
+}
+
 # IrrigationCaddy host name or ip address, and zone number are required
 host=$1
 zone=$2
 
 for n in `seq $count`; do
+    echo
+    echo
+    echo "Round $n..."
     echo `dirname $0`/runnow.sh $host $zone $zoneTime
-    sleep $intervalSeconds
+    `dirname $0`/runnow.sh $host $zone $zoneTime
+    echo "Sleeping $intervalSeconds..."
+    countdown $intervalSeconds
 done
