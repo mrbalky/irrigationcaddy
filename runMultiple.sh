@@ -49,12 +49,12 @@ function countdown
 host=$1
 zone=$2
 
-for n in `seq $count`; do
+for n in `seq $count -1 1`; do
     echo
     echo
-    echo "Round $n..."
     echo `dirname $0`/runnow.sh $host $zone $zoneTime
     `dirname $0`/runnow.sh $host $zone $zoneTime
+    echo $(($n-1)) rounds left
     echo "Sleeping $intervalSeconds..."
     countdown $intervalSeconds
 done
