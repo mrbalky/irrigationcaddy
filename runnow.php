@@ -1,6 +1,6 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.3, user-scalable=yes">
-<?
+<?php
 $irrigationCaddy = "192.168.1.60";
 
 function minSelect($zone) {
@@ -17,7 +17,7 @@ function minSelect($zone) {
     <option value="9">9</option>
     <option value="10">10</option>
   </select>
-  <?
+  <?php
 }
 
 function runNowForm($zone) {
@@ -25,7 +25,7 @@ function runNowForm($zone) {
 ?>
     <form method="POST" action="<?=$_SERVER['PHP_SELF']?>">
         <b>Zone <?=$zone?>:</b>
-        <?
+        <?php
         minSelect($zone);
         for ( $i=1; $i<=9; $i++ ) {
             if ($zone != $i)
@@ -45,7 +45,7 @@ function runNowForm($zone) {
         <input type="hidden" name="runNow" value="1"/>
         <input type="hidden" name="pgmNum" value="4"/>
         <input type="submit" value="Run"/>
-    </form> <?
+    </form> <?php
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="submit" value="Stop Active Zone"/>
         <input type="hidden" name="stop" value="active"/>
     </form>
-<?
+<?php
 runNowForm(1);
 runNowForm(2);
 runNowForm(3);
