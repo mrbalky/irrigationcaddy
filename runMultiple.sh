@@ -29,8 +29,8 @@ do
 done
 shift $((OPTIND-1))
 zoneTime=${zoneTime:-1}
-intervalSeconds=${intervalSeconds:-300}
-count=${count:-5}
+intervalSeconds=${intervalSeconds:-430}
+count=${count:-1}
 
 if [ $# -lt 2 ]; then
     usage
@@ -38,7 +38,7 @@ fi
 
 function countdown
 {
-   for n in `seq $1 -1 1`; do
+   for n in `seq $1 -1 0`; do
       printf "\r- %3d -     " $n
       sleep 1
    done
@@ -54,7 +54,7 @@ for n in `seq $count -1 1`; do
     echo
     echo `dirname $0`/runnow.sh $host $zone $zoneTime
     `dirname $0`/runnow.sh $host $zone $zoneTime
-    echo $(($n-1)) rounds left
+    echo "$(($n-1)) round(s) left"
     echo "Sleeping $intervalSeconds..."
     countdown $intervalSeconds
 done
