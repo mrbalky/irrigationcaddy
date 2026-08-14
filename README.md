@@ -9,3 +9,6 @@ I also have an inadequate compressor for blowing out the lines in the fall, so w
 required to blow out each zone.
 
 These scripts require BASH and wget.
+
+runMultiple.sh defaults to 1 minute and 430 secs between rounds
+
